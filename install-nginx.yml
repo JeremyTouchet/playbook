@@ -1,0 +1,34 @@
+---
+- name: "nginx installation"
+  hosts: all
+  tasks:
+  - name: "update yum"
+    yum:
+      update_cache: yes
+
+  - name: "install epel depot"
+    yum: 
+      name: epel-release
+      state: present
+
+  - name: "update yum"
+    yum:
+      update_cache: yes
+
+  - name: "install nginx package"
+    yum:
+      name: nginx
+      state: present
+
+  - name: "start nginx service"
+    service:
+      name: nginx
+      state: started
+      enabled: yes
+
+  - name: "Copy index.html"
+    copy:
+      src: index.html
+      dest: /usr/share/nginx/html/index.html
+      owner: "apache"
+      group: "apache"
