@@ -1,0 +1,10 @@
+---
+- name: installation nginx via roles
+  hosts: 192.168.88.137
+  vars:
+    user: ajc
+    domain: jeremy.org 
+  roles:
+    - tools
+    - user
+    - nginx

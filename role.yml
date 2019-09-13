@@ -1,0 +1,8 @@
+---
+- name: installation nginx
+  hosts: all
+  vars: 
+    user: toto
+
+  roles:
+    - user

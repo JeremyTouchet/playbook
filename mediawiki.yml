@@ -1,6 +1,6 @@
 ---
 - name: install mediawiki
-  hosts: 192.168.88.141
+  hosts: ungrouped
   vars:
    remote_user: jeremy
    become: yes

@@ -1,0 +1,17 @@
+---
+- name: installation server Web
+  hosts: 192.168.88.137 
+  remote_user: root
+  vars:
+   user : jeremy
+   domains:
+     - domain:  toto.fr
+       php: yes
+     - domain: tutu.com
+       php: no
+       repo: https://github.com/Grafikart/grafikart.github.io.git
+  tasks:
+  roles:
+   - user
+   - tools
+   - nginx

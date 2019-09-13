@@ -1,22 +1,22 @@
 ---
 - name: "nginx installation"
-  hosts: all
+  hosts: 192.168.88.136 
   tasks:
-  - name: "update yum"
-    yum:
+  - name: "update apt"
+    apt:
       update_cache: yes
 
   - name: "install epel depot"
-    yum: 
+    apt:
       name: epel-release
       state: present
 
-  - name: "update yum"
-    yum:
+  - name: "update apt"
+    apt:
       update_cache: yes
 
   - name: "install nginx package"
-    yum:
+    apt:
       name: nginx
       state: present
 
@@ -34,17 +34,10 @@
   - name: "création dossier2"
     file:
       path: /usr/share/nginx/dossier_nginx_2/html
-      state: directory 
+      state: directory
 
   - name: "Copy index1.html"
     copy:
       src: index1.html
       dest: /usr/share/nginx/dossier_nginx_1/html/index1.html
-      
 
-  - name: "Copy index2.html"
-    copy:
-      src: index2.html
-      dest: /usr/share/nginx/dossier_nginx_2/html/index2.html
-
-  
